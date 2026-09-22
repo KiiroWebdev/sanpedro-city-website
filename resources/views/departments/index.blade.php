@@ -48,7 +48,7 @@
 
         <div class="row g-4">
 
-            @foreach($departments as $department)
+            @foreach($departments as $slug => $department)
 
                 <div class="col-md-6 col-lg-4">
 
