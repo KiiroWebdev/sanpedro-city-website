@@ -3253,3 +3253,232 @@ transform: translateX(4px);
     }
 
 }
+
+/* =========================================================
+   DEPARTMENT DETAIL PAGE
+   ========================================================= */
+
+.department-detail-section {
+    background: var(--white);
+}
+
+.department-detail-card {
+    padding: 40px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(25, 51, 34, 0.07);
+}
+
+.department-detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    margin-bottom: 25px;
+    border-radius: 16px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 1.8rem;
+}
+
+.department-detail-card h2 {
+    margin-bottom: 18px;
+    color: var(--dark);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.department-detail-description {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.department-services-card {
+    padding: 35px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.department-detail-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.department-heading-icon {
+    display: flex;
+    flex: 0 0 48px;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--light);
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.department-detail-heading h3 {
+    margin: 0;
+    color: var(--dark);
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.department-services-card > p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.service-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    background: var(--light);
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.service-placeholder i {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.department-contact-card {
+    padding: 30px;
+    background: var(--light);
+    border-radius: 16px;
+    border-top: 4px solid var(--secondary);
+}
+
+.department-contact-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.department-contact-heading h3 {
+    margin: 0;
+    color: var(--dark);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 17px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.contact-detail:last-child {
+    border-bottom: none;
+}
+
+.contact-detail > i {
+    margin-top: 2px;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.contact-detail span {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+
+.contact-detail strong {
+    display: block;
+    color: var(--dark);
+    font-size: 0.92rem;
+}
+
+.department-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.department-back-link:hover {
+    color: var(--primary-dark);
+}
+
+.department-back-link i {
+    transition: transform 0.2s ease;
+}
+
+.department-back-link:hover i {
+    transform: translateX(-4px);
+}
+
+
+/* Department detail mobile */
+@media (max-width: 767.98px) {
+
+    .department-detail-card,
+    .department-services-card {
+        padding: 28px 22px;
+    }
+
+    .department-detail-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .department-contact-card {
+        padding: 25px 22px;
+    }
+
+}
+
+/* =========================================================
+   FINAL PAGE HEADER OVERRIDE
+   ========================================================= */
+
+.page-header {
+    padding: 70px 0 !important;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(5, 91, 37, 0.94),
+            rgba(52, 120, 78, 0.94)
+        ) !important;
+    border-bottom: none !important;
+    color: var(--white) !important;
+}
+
+.page-header h1 {
+    color: var(--white) !important;
+}
+
+.page-header p {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.page-header-label {
+    color: var(--secondary) !important;
+}
+
+.departments-page-header {
+    background:
+        linear-gradient(
+            rgba(5, 91, 37, 0.92),
+            rgba(52, 120, 78, 0.92)
+        ),
+        url('/images/city-hall.jpg') center center / cover no-repeat !important;
+}

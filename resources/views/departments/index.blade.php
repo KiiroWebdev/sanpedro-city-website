@@ -72,13 +72,13 @@
                                 {{ $department['description'] }}
                             </p>
 
-                            <a href="#"
-                               class="department-link">
+                            <a href="{{ route('departments.show', \Illuminate\Support\Str::slug($department['name'])) }}"
+   class="department-link">
 
-                                View Office
-                                <i class="bi bi-arrow-right"></i>
+    View Office
+    <i class="bi bi-arrow-right"></i>
 
-                            </a>
+</a>
 
                         </div>
 

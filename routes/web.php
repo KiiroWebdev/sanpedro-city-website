@@ -110,3 +110,6 @@ Route::get('/city-officials', [CityOfficialsController::class, 'index'])
 
 Route::get('/departments', [DepartmentController::class, 'index'])
     ->name('departments');
+
+Route::get('/departments/{slug}', [DepartmentController::class, 'show'])
+    ->name('departments.show');

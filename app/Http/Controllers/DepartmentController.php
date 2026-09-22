@@ -83,4 +83,53 @@ class DepartmentController extends Controller
 
         return view('departments.index', compact('departments'));
     }
+
+    public function show(string $slug)
+    {
+        $departments = [
+            'public-affairs-and-information-office' => [
+                'name' => 'Public Affairs and Information Office',
+                'acronym' => 'PAIO',
+                'description' => 'Handles public information, communications, and information dissemination of the City Government.',
+                'icon' => 'bi-megaphone',
+            ],
+
+            'city-administrators-office' => [
+                'name' => 'City Administrator’s Office',
+                'acronym' => 'CAO',
+                'description' => 'Provides administrative support and coordinates the implementation of city government programs.',
+                'icon' => 'bi-building',
+            ],
+
+            'city-planning-and-development-office' => [
+                'name' => 'City Planning and Development Office',
+                'acronym' => 'CPDO',
+                'description' => 'Responsible for city development planning and related planning activities.',
+                'icon' => 'bi-map',
+            ],
+
+            'city-engineering-office' => [
+                'name' => 'City Engineering Office',
+                'acronym' => 'CEO',
+                'description' => 'Handles engineering-related programs, infrastructure, and public works.',
+                'icon' => 'bi-cone-striped',
+            ],
+
+            'city-health-office' => [
+                'name' => 'City Health Office',
+                'acronym' => 'CHO',
+                'description' => 'Provides health programs and services to the residents of San Pedro.',
+                'icon' => 'bi-heart-pulse',
+            ],
+        ];
+
+        abort_unless(isset($departments[$slug]), 404);
+
+        $department = $departments[$slug];
+
+        return view(
+            'departments.show',
+            compact('department')
+        );
+    }
 }
