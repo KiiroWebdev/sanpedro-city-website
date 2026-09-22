@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminAnnouncementController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CityOfficialsController;
+use App\Http\Controllers\DepartmentController;
 use App\Models\Announcement;
 
 Route::get('/', function () {
@@ -106,3 +107,6 @@ Route::get('/about', [AboutController::class, 'index'])
 
 Route::get('/city-officials', [CityOfficialsController::class, 'index'])
     ->name('city-officials');
+
+Route::get('/departments', [DepartmentController::class, 'index'])
+    ->name('departments');

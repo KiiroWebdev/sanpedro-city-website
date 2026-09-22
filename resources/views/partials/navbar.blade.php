@@ -73,10 +73,10 @@
 </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Departments
-                        </a>
-                    </li>
+    <a class="nav-link" href="{{ route('departments') }}">
+        Departments
+    </a>
+</li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="#">
