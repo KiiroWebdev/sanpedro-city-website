@@ -316,7 +316,7 @@
         {{-- Departments --}}
         <div class="col-lg-3 col-md-6">
 
-            <a href="#" class="quick-link-card">
+            <a href="{{ route('departments') }}" class="quick-link-card">
 
                 <div class="quick-link-icon">
                     <i class="bi bi-building"></i>

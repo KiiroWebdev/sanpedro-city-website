@@ -10,6 +10,7 @@ use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CityOfficialsController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\GovernmentServiceController;
 use App\Models\Announcement;
 
 Route::get('/', function () {
@@ -113,3 +114,6 @@ Route::get('/departments', [DepartmentController::class, 'index'])
 
 Route::get('/departments/{slug}', [DepartmentController::class, 'show'])
     ->name('departments.show');
+
+Route::get('/services', [GovernmentServiceController::class, 'index'])
+    ->name('services.index');
