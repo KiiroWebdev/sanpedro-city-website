@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AdminMediaController;
 use App\Http\Controllers\AdminAnnouncementController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\AboutController;
 use App\Models\Announcement;
 
 Route::get('/', function () {
@@ -98,3 +99,6 @@ Route::get('/announcements', [AnnouncementController::class, 'index'])
 
 Route::get('/announcements/{slug}', [AnnouncementController::class, 'show'])
     ->name('announcements.show');
+
+Route::get('/about', [AboutController::class, 'index'])
+    ->name('about');
