@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminMediaController;
 use App\Http\Controllers\AdminAnnouncementController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CityOfficialsController;
 use App\Models\Announcement;
 
 Route::get('/', function () {
@@ -102,3 +103,6 @@ Route::get('/announcements/{slug}', [AnnouncementController::class, 'show'])
 
 Route::get('/about', [AboutController::class, 'index'])
     ->name('about');
+
+Route::get('/city-officials', [CityOfficialsController::class, 'index'])
+    ->name('city-officials');

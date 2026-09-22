@@ -67,10 +67,10 @@
 </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            City Officials
-                        </a>
-                    </li>
+    <a class="nav-link" href="{{ route('city-officials') }}">
+        City Officials
+    </a>
+</li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="#">
