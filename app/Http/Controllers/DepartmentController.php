@@ -171,12 +171,71 @@ class DepartmentController extends Controller
     'hours' => 'Monday to Friday, 8:00 AM – 5:00 PM',
 ],
 
+            'city-disaster-risk-reduction-and-management-office' => [
+    'name' => 'City Disaster Risk Reduction and Management Office',
+    'acronym' => 'CDRRMO',
+    'description' => 'Leads disaster risk reduction and management, emergency preparedness, response, and related programs of the City Government.',
+    'icon' => 'bi-shield-exclamation',
+
+    'head' => null,
+
+    'address' => 'City Hall of San Pedro, San Pedro City, Laguna',
+
+    'phone' => '(02) 8403-2648 / 0998-594-1743',
+
+    'hours' => '24/7 Emergency and Disaster Response',
+],
+
             'city-general-services-office' => [
     'name' => 'City General Services Office',
     'acronym' => 'CGSO',
     'description' => 'Provides general support, property, supplies, and logistical services to the city government.',
     'icon' => 'bi-box-seam',
 
+    'head' => null,
+
+    'address' => 'City Hall of San Pedro, San Pedro City, Laguna',
+
+    'phone' => null,
+
+    'hours' => 'Monday to Friday, 8:00 AM – 5:00 PM',
+],
+
+'city-veterinary-office' => [
+    'name' => 'City Veterinary Office',
+    'acronym' => 'CVO',
+    'description' => 'Provides veterinary services and supports animal health, welfare, and related programs in the city.',
+    'icon' => 'bi-heart-pulse',
+
+    'head' => null,
+
+    'address' => 'B/F, City Hall of San Pedro, San Pedro City, Laguna',
+
+    'phone' => '(02) 8808-2020 Local 109',
+
+    'hours' => 'Monday to Friday, 8:00 AM – 5:00 PM',
+],
+'persons-with-disability-affairs-office' => [
+    'name' => 'Persons with Disability Affairs Office',
+    'acronym' => 'PDAO',
+    'description' => 'Coordinates programs, services, and assistance for persons with disabilities and promotes their rights and inclusion in the community.',
+    'icon' => 'bi-universal-access',
+
+    'head' => null,
+
+    'address' => 'City Hall of San Pedro, San Pedro City, Laguna',
+
+    'phone' => '(02) 8808-2020 Local 122',
+
+    'hours' => 'Monday to Friday, 8:00 AM – 5:00 PM',
+],
+
+'city-tourism-culture-and-arts-office' => [
+    'name' => 'City Tourism, Culture and Arts Office',
+    'acronym' => 'CTCAO',
+    'description' => 'Promotes the city’s tourism, cultural heritage, arts, and related programs and activities.',
+    'icon' => 'bi-camera',
+    
     'head' => null,
 
     'address' => 'City Hall of San Pedro, San Pedro City, Laguna',
