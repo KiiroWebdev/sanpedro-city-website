@@ -78,11 +78,11 @@
     </a>
 </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Services
-                        </a>
-                    </li>
+                   <li class="nav-item">
+    <a class="nav-link" href="{{ route('services.index') }}">
+        Services
+    </a>
+</li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('news.index') }}">
@@ -97,10 +97,10 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Contact
-                        </a>
-                    </li>
+    <a class="nav-link" href="{{ route('contact') }}">
+        Contact
+    </a>
+</li>
 
                 </ul>
 

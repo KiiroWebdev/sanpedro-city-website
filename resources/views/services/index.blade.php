@@ -29,7 +29,7 @@
 
         <div class="row g-4">
 
-            @foreach($categories as $category)
+            @foreach($categories as $categorySlug => $category)
 
                 <div class="col-md-6 col-lg-4">
 
@@ -45,10 +45,13 @@
                             {{ $category['description'] }}
                         </p>
 
-                        <a href="#" class="service-category-link">
-                            View Services
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <a
+    href="{{ route('services.show', $categorySlug) }}"
+    class="service-category-link"
+>
+    View Services
+    <i class="bi bi-arrow-right"></i>
+</a>
 
                     </div>
 

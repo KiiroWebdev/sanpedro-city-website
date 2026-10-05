@@ -377,6 +377,27 @@
 
 </div>
 
+{{-- Facebook Post --}}
+<div class="col-12">
+    <label for="facebook_url" class="form-label">
+        Facebook Post
+    </label>
+
+    <input
+        type="url"
+        id="facebook_url"
+        name="facebook_url"
+        class="form-control"
+        value="{{ old('facebook_url', $post->facebook_url) }}"
+        placeholder="Paste the Facebook post URL here"
+    >
+
+    <div class="form-text">
+        Optional. Paste the public Facebook post URL if you want to display
+        the Facebook post on the News page.
+    </div>
+</div>
+
                     {{-- Current Image --}}
 
                     @if($post->featured_image)

@@ -152,20 +152,16 @@
 
             <div class="about-cta-buttons">
 
-                <a href="#"
-                   class="btn btn-light">
+                <a href="{{ route('services.index') }}"
+   class="btn btn-light">
+    <i class="bi bi-grid"></i>
+    Government Services
+</a>
 
-                    <i class="bi bi-grid"></i>
-                    Government Services
-
-                </a>
-
-                <a href="#"
+                <a href="{{ route('contact') }}"
    class="btn btn-outline-success">
-
     <i class="bi bi-telephone"></i>
     Contact Us
-
 </a>
 
             </div>

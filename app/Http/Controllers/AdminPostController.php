@@ -45,6 +45,7 @@ class AdminPostController extends Controller
             'author' => ['nullable', 'string', 'max:255'],
             'status' => ['required', 'in:draft,published'],
             'published_at' => ['nullable', 'date'],
+            'facebook_url' => ['nullable', 'url', 'max:2048'],
 
             // Existing media library image
             'featured_image' => ['nullable', 'string', 'max:255'],
@@ -185,6 +186,7 @@ class AdminPostController extends Controller
             'author' => ['nullable', 'string', 'max:255'],
             'status' => ['required', 'in:draft,published'],
             'published_at' => ['nullable', 'date'],
+            'facebook_url' => ['nullable', 'url', 'max:2048'],
 
             // Existing media library image
             'featured_image' => ['nullable', 'string', 'max:255'],

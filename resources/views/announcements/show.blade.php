@@ -11,10 +11,7 @@
         {{-- Back to Announcements --}}
         <div class="announcement-detail-back">
 
-            <a href="{{ route('announcements.index') }}">
-                <i class="bi bi-arrow-left"></i>
-                Back to Announcements
-            </a>
+            
 
         </div>
 

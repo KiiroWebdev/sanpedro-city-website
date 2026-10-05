@@ -47,17 +47,41 @@
 
             </header>
 
-            {{-- Featured Image --}}
-            <div class="news-article-image">
+            {{-- Featured Image / Facebook Post --}}
+@if($post->facebook_url)
 
-                <img
-                    src="{{ $post->featured_image
-                        ? asset('images/' . $post->featured_image)
-                        : asset('images/city-hall.jpg') }}"
-                    alt="{{ $post->title }}"
-                >
+    <div class="facebook-embed">
+        <iframe
+            src="https://www.facebook.com/plugins/post.php?href={{ urlencode($post->facebook_url) }}&show_text=true&width=500"
+            width="500"
+            height="738"
+            style="border:none;overflow:hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+    </div>
 
-            </div>
+@elseif($post->featured_image)
+
+    <div class="news-article-image">
+        <img
+            src="{{ asset('images/' . $post->featured_image) }}"
+            alt="{{ $post->title }}"
+        >
+    </div>
+
+@else
+
+    <div class="news-article-image">
+        <img
+            src="{{ asset('images/city-hall.jpg') }}"
+            alt="San Pedro City Hall"
+        >
+    </div>
+
+@endif
 
             {{-- Article Content --}}
             <div class="news-article-content">

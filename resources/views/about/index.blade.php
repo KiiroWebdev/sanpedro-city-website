@@ -145,11 +145,8 @@
                         <i class="bi bi-people"></i>
                     </div>
 
-                    <h4>Population</h4>
-
-                    <p>
-                        Official city data
-                    </p>
+                    <h3>Population</h3>
+<p>348,968 (2024 POPCEN)</p>
 
                 </div>
 
@@ -164,11 +161,8 @@
                         <i class="bi bi-buildings"></i>
                     </div>
 
-                    <h4>Barangays</h4>
-
-                    <p>
-                        Official city data
-                    </p>
+                    <h3>Barangays</h3>
+<p>27 Barangays</p>
 
                 </div>
 
@@ -198,6 +192,8 @@
                     OUR HISTORY
                 </span>
 
+                
+
                 <h2 class="section-title">
                     History of San Pedro
                 </h2>
@@ -208,19 +204,20 @@
             <div class="col-lg-7">
 
                 <p>
-                    San Pedro has a rich history and continues to
-                    develop as an important community in Laguna.
-                </p>
+    San Pedro is a city in the province of Laguna, Philippines.
+    The city traces its local identity and development to its history
+    as a municipality and its long association with sampaguita
+    cultivation and livelihood.
+</p>
 
-                <p>
-                    The historical background of the city, including
-                    important milestones and developments, will be
-                    presented here using official and verified
-                    information.
-                </p>
+<p>
+    San Pedro became a city in 2013. Since then, the City Government
+    has continued to develop the city as part of the growing
+    communities of Laguna and CALABARZON.
+</p>
 
-                <a href="#"
-                   class="btn btn-outline-success">
+                <a href="{{ route('about') }}"
+   class="btn btn-outline-success">
                     <i class="bi bi-arrow-right"></i>
                     Read More
                 </a>
@@ -265,8 +262,8 @@
                     <h3>Mission</h3>
 
                     <p>
-                        Official mission statement of the
-                        City Government of San Pedro.
+                        Deliver the highest quality of basic services to our constituents while optimizing our 
+resources in accordance with the statutory requirements and our core values.
                     </p>
 
                 </div>
@@ -285,8 +282,7 @@
                     <h3>Vision</h3>
 
                     <p>
-                        Official vision statement of the
-                        City Government of San Pedro.
+                        San Pedro City: A leading recognized Smart City in CALABARZON by 2032. 
                     </p>
 
                 </div>

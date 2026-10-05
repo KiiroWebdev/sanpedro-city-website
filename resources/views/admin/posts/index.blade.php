@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Manage Posts - City Government of San Pedro')
+@section('title', 'Manage Downloads - City Government of San Pedro')
 
 @section('content')
 

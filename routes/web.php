@@ -11,6 +11,9 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CityOfficialsController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\GovernmentServiceController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\AdminDownloadController;
 use App\Models\Announcement;
 
 Route::get('/', function () {
@@ -117,3 +120,39 @@ Route::get('/departments/{slug}', [DepartmentController::class, 'show'])
 
 Route::get('/services', [GovernmentServiceController::class, 'index'])
     ->name('services.index');
+
+
+Route::get('/services/{slug}', [GovernmentServiceController::class, 'show'])
+    ->name('services.show');    
+
+Route::get(
+    '/services/{categorySlug}/{serviceSlug}',
+    [GovernmentServiceController::class, 'service']
+)->name('services.service');
+
+Route::get('/contact', [ContactController::class, 'index'])
+    ->name('contact');
+
+Route::get('/downloads', [DownloadController::class, 'index'])
+    ->name('downloads');
+
+Route::get('/downloads/{slug}', [DownloadController::class, 'show'])
+    ->name('downloads.show');
+Route::get('/admin/downloads', [AdminDownloadController::class, 'index'])
+    ->name('admin.downloads.index');
+
+Route::get('/admin/downloads/create', [AdminDownloadController::class, 'create'])
+    ->name('admin.downloads.create');
+
+Route::post('/admin/downloads', [AdminDownloadController::class, 'store'])
+    ->name('admin.downloads.store');
+Route::get('/admin/downloads/{download}/edit', [AdminDownloadController::class, 'edit'])
+    ->name('admin.downloads.edit');
+
+Route::put('/admin/downloads/{download}', [AdminDownloadController::class, 'update'])
+    ->name('admin.downloads.update');
+
+Route::delete('/admin/downloads/{download}', [AdminDownloadController::class, 'destroy'])
+    ->name('admin.downloads.destroy');
+
+

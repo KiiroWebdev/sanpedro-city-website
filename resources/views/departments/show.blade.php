@@ -83,13 +83,13 @@
 
                     <div class="service-placeholder">
 
-                        <i class="bi bi-info-circle"></i>
+    <i class="bi bi-info-circle"></i>
 
-                        <span>
-                            Service information coming soon.
-                        </span>
+    <span>
+        Please contact this office for information on its programs and services.
+    </span>
 
-                    </div>
+</div>
 
                 </div>
 
@@ -114,83 +114,111 @@
                     </div>
 
 
-                    <div class="contact-detail">
+                    @if(!empty($department['head']))
+    <div class="contact-detail">
 
-                        <i class="bi bi-person"></i>
+        <i class="bi bi-person"></i>
 
-                        <div>
+        <div>
 
-                            <span>
-                                Office Head
-                            </span>
+            <span>
+                Office Head
+            </span>
 
-                            <strong>
-                                To be updated
-                            </strong>
+            <strong>
+                {{ $department['head'] }}
+            </strong>
 
-                        </div>
+        </div>
 
-                    </div>
-
-
-                    <div class="contact-detail">
-
-                        <i class="bi bi-geo-alt"></i>
-
-                        <div>
-
-                            <span>
-                                Office Address
-                            </span>
-
-                            <strong>
-                                To be updated
-                            </strong>
-
-                        </div>
-
-                    </div>
+    </div>
+@endif
 
 
-                    <div class="contact-detail">
+                   @if(!empty($department['address']))
+    <div class="contact-detail">
 
-                        <i class="bi bi-telephone"></i>
+        <i class="bi bi-geo-alt"></i>
 
-                        <div>
+        <div>
 
-                            <span>
-                                Telephone
-                            </span>
+            <span>
+                Office Address
+            </span>
 
-                            <strong>
-                                To be updated
-                            </strong>
+            <strong>
+                {{ $department['address'] }}
+            </strong>
 
-                        </div>
+        </div>
 
-                    </div>
+    </div>
+@endif
 
 
-                    <div class="contact-detail">
+                    @if(!empty($department['phone']))
+    <div class="contact-detail">
 
-                        <i class="bi bi-clock"></i>
+        <i class="bi bi-telephone"></i>
 
-                        <div>
+        <div>
 
-                            <span>
-                                Office Hours
-                            </span>
+            <span>
+                Telephone
+            </span>
 
-                            <strong>
-                                To be updated
-                            </strong>
+            <strong>
+                {{ $department['phone'] }}
+            </strong>
 
-                        </div>
+        </div>
 
-                    </div>
+    </div>
+@endif
 
-                </div>
 
+                    @if(!empty($department['hours']))
+    <div class="contact-detail">
+
+        <i class="bi bi-clock"></i>
+
+        <div>
+
+            <span>
+                Office Hours
+            </span>
+
+            <strong>
+                {{ $department['hours'] }}
+            </strong>
+
+        </div>
+
+    </div>
+@endif
+
+@if(!empty($department['email']))
+    <div class="contact-detail">
+
+        <i class="bi bi-envelope"></i>
+
+        <div>
+
+            <span>
+                Email
+            </span>
+
+            <strong>
+                <a href="mailto:{{ $department['email'] }}">
+                    {{ $department['email'] }}
+                </a>
+            </strong>
+
+        </div>
+
+    </div>
+@endif
+ </div>
 
                 <a href="{{ route('departments') }}"
                    class="department-back-link">

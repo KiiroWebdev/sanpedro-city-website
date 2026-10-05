@@ -173,12 +173,12 @@
                         </label>
 
                         <input
-                            type="datetime-local"
-                            id="published_at"
-                            name="published_at"
-                            class="form-control"
-                            value="{{ old('published_at') }}"
-                        >
+    type="datetime-local"
+    id="published_at"
+    name="published_at"
+    class="form-control"
+    value="{{ old('published_at', old('status', 'published') === 'published' ? now()->format('Y-m-d\TH:i') : '') }}"
+>
 
                         <div class="form-text">
                             Leave blank to use the current date when publishing.
@@ -267,6 +267,27 @@
 
     </div>
 
+</div>
+
+{{-- Facebook Post --}}
+<div class="col-12">
+    <label for="facebook_url" class="form-label">
+        Facebook Post
+    </label>
+
+    <input
+        type="url"
+        id="facebook_url"
+        name="facebook_url"
+        class="form-control"
+        value="{{ old('facebook_url') }}"
+        placeholder="Paste the Facebook post URL here"
+    >
+
+    <div class="form-text">
+        Optional. Paste the public Facebook post URL if you want to display
+        the Facebook post on the News page.
+    </div>
 </div>
 
                 </div>

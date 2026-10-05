@@ -287,7 +287,7 @@
 
 <section class="quick-links">
 
-```
+
 <div class="container">
 
     {{-- Section Heading --}}
@@ -347,7 +347,7 @@
         {{-- City Officials --}}
         <div class="col-lg-3 col-md-6">
 
-            <a href="#" class="quick-link-card">
+            <a href="{{ route('city-officials') }}" class="quick-link-card">
 
                 <div class="quick-link-icon">
                     <i class="bi bi-person-badge"></i>
@@ -378,7 +378,7 @@
         {{-- Downloads --}}
         <div class="col-lg-3 col-md-6">
 
-            <a href="#" class="quick-link-card">
+            <a href="{{ route('downloads') }}" class="quick-link-card">
 
                 <div class="quick-link-icon">
                     <i class="bi bi-file-earmark-arrow-down"></i>
@@ -409,7 +409,7 @@
         {{-- Contact --}}
         <div class="col-lg-3 col-md-6">
 
-            <a href="#" class="quick-link-card">
+            <a href="{{ route('contact') }}">
 
                 <div class="quick-link-icon">
                     <i class="bi bi-telephone"></i>
