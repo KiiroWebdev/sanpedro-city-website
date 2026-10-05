@@ -164,28 +164,29 @@ class DepartmentController extends Controller
 
     'head' => 'Jamie R. Ambayec',
 
-    'address' => 'City Hall of San Pedro, San Pedro City, Laguna',
+    'address' => 'New City Hall Bldg., Brgy. Poblacion, City of San Pedro, Laguna',
 
     'phone' => '(02) 8808-2020',
+
+    'email' => 'cedo.sanpedro@gmail.com',
 
     'hours' => 'Monday to Friday, 8:00 AM – 5:00 PM',
 ],
 
-            'city-disaster-risk-reduction-and-management-office' => [
+           'city-disaster-risk-reduction-and-management-office' => [
     'name' => 'City Disaster Risk Reduction and Management Office',
     'acronym' => 'CDRRMO',
     'description' => 'Leads disaster risk reduction and management, emergency preparedness, response, and related programs of the City Government.',
     'icon' => 'bi-shield-exclamation',
 
-    'head' => null,
+    'head' => 'Vernet Nico Pavino',
 
-    'address' => 'City Hall of San Pedro, San Pedro City, Laguna',
+    'address' => 'Brgy. Poblacion, San Pedro City, Laguna',
 
     'phone' => '(02) 8403-2648 / 0998-594-1743',
 
     'hours' => '24/7 Emergency and Disaster Response',
 ],
-
             'city-general-services-office' => [
     'name' => 'City General Services Office',
     'acronym' => 'CGSO',
@@ -200,7 +201,6 @@ class DepartmentController extends Controller
 
     'hours' => 'Monday to Friday, 8:00 AM – 5:00 PM',
 ],
-
 'city-veterinary-office' => [
     'name' => 'City Veterinary Office',
     'acronym' => 'CVO',
@@ -209,39 +209,32 @@ class DepartmentController extends Controller
 
     'head' => null,
 
-    'address' => 'B/F, City Hall of San Pedro, San Pedro City, Laguna',
+    'address' => 'New City Hall Bldg., Brgy. Poblacion, City of San Pedro, Laguna',
 
     'phone' => '(02) 8808-2020 Local 109',
 
     'hours' => 'Monday to Friday, 8:00 AM – 5:00 PM',
 ],
 'persons-with-disability-affairs-office' => [
-    'name' => 'Persons with Disability Affairs Office',
+    'name' => 'Persons with Disabilities Affairs Office',
     'acronym' => 'PDAO',
     'description' => 'Coordinates programs, services, and assistance for persons with disabilities and promotes their rights and inclusion in the community.',
     'icon' => 'bi-universal-access',
-
-    'head' => null,
-
+    'head' => 'Joselito S. Negrosa',
     'address' => 'City Hall of San Pedro, San Pedro City, Laguna',
-
     'phone' => '(02) 8808-2020 Local 122',
-
     'hours' => 'Monday to Friday, 8:00 AM – 5:00 PM',
 ],
 
 'city-tourism-culture-and-arts-office' => [
     'name' => 'City Tourism, Culture and Arts Office',
-    'acronym' => 'CTCAO',
+    'acronym' => 'TCAO',
     'description' => 'Promotes the city’s tourism, cultural heritage, arts, and related programs and activities.',
     'icon' => 'bi-camera',
-    
-    'head' => null,
-
-    'address' => 'City Hall of San Pedro, San Pedro City, Laguna',
-
-    'phone' => null,
-
+    'head' => 'Jhe-Rico Sam Colina',
+    'address' => '2nd Floor, New City Hall Bldg., Brgy. Poblacion, City of San Pedro, Laguna',
+    'phone' => '(02) 8808-2020',
+    'email' => 'tcao.cityofsanpedro@gmail.com',
     'hours' => 'Monday to Friday, 8:00 AM – 5:00 PM',
 ],
 
