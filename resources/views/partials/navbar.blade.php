@@ -97,6 +97,12 @@
                     </li>
 
                     <li class="nav-item">
+    <a class="nav-link" href="{{ route('biddings.index') }}">
+        Biddings
+    </a>
+</li>
+
+                    <li class="nav-item">
     <a class="nav-link" href="{{ route('contact') }}">
         Contact
     </a>

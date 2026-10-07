@@ -8,12 +8,15 @@
 
     <div class="container">
 
-        {{-- Back to Announcements --}}
-        <div class="announcement-detail-back">
+       {{-- Back to Announcements --}}
+<div class="announcement-detail-back">
 
-            
+    <a href="{{ route('announcements.index') }}">
+        <i class="bi bi-arrow-left"></i>
+        Back to Announcements
+    </a>
 
-        </div>
+</div>
 
 
         {{-- Announcement Article --}}
@@ -66,15 +69,19 @@
             <div class="announcement-detail-body">
 
                 {{-- Excerpt / Highlight --}}
-                @if($announcement->excerpt)
+            @if($announcement->excerpt)
 
-                    <div class="announcement-detail-excerpt">
+    <div class="announcement-detail-excerpt">
 
-                        {{ $announcement->excerpt }}
+        <i class="bi bi-megaphone"></i>
 
-                    </div>
+        <p>
+            {{ $announcement->excerpt }}
+        </p>
 
-                @endif
+    </div>
+
+@endif
 
 
                 {{-- Full Content --}}
@@ -94,21 +101,83 @@
         </article>
 
 
-        {{-- Bottom Back Button --}}
-        <div class="announcement-detail-footer">
+{{-- Announcement Navigation --}}
+@php
+    $announcementNavClass = 'announcement-detail-footer';
+
+    if (!$previousAnnouncement && $nextAnnouncement) {
+        $announcementNavClass .= ' has-next-only';
+    } elseif ($previousAnnouncement && !$nextAnnouncement) {
+        $announcementNavClass .= ' has-previous-only';
+    } elseif (!$previousAnnouncement && !$nextAnnouncement) {
+        $announcementNavClass .= ' has-no-adjacent';
+    }
+@endphp
+
+<div class="{{ $announcementNavClass }}">
+
+    {{-- Previous Announcement --}}
+    @if($previousAnnouncement)
+
+        <div class="announcement-detail-nav announcement-detail-nav-prev">
 
             <a
-                href="{{ route('announcements.index') }}"
-                class="btn btn-primary"
+                href="{{ route('announcements.show', $previousAnnouncement->slug) }}"
+                class="announcement-nav-link"
             >
-                <i class="bi bi-arrow-left"></i>
-                Back to Announcements
+                <span class="announcement-nav-label">
+                    <i class="bi bi-arrow-left"></i>
+                    Previous Announcement
+                </span>
+
+                <span class="announcement-nav-title">
+                    {{ $previousAnnouncement->title }}
+                </span>
             </a>
 
         </div>
 
+    @endif
+
+
+    {{-- Back to Announcements --}}
+    <div class="announcement-detail-nav-center">
+
+        <a
+            href="{{ route('announcements.index') }}"
+            class="announcement-nav-home"
+        >
+            <i class="bi bi-grid"></i>
+            Back to Announcements
+        </a>
+
     </div>
 
+
+    {{-- Next Announcement --}}
+    @if($nextAnnouncement)
+
+        <div class="announcement-detail-nav announcement-detail-nav-next">
+
+            <a
+                href="{{ route('announcements.show', $nextAnnouncement->slug) }}"
+                class="announcement-nav-link"
+            >
+                <span class="announcement-nav-label">
+                    Next Announcement
+                    <i class="bi bi-arrow-right"></i>
+                </span>
+
+                <span class="announcement-nav-title">
+                    {{ $nextAnnouncement->title }}
+                </span>
+            </a>
+
+        </div>
+
+    @endif
+
+</div>
 </section>
 
 @endsection

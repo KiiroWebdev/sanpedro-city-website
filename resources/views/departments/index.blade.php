@@ -72,11 +72,12 @@
                                 {{ $department['description'] }}
                             </p>
 
-                           <a href="{{ route('departments.show', $slug) }}"
-
+                          <a
+    href="{{ route('departments.show', $slug) }}"
+    class="department-view-link"
+>
     View Office
     <i class="bi bi-arrow-right"></i>
-
 </a>
 
                         </div>

@@ -27,6 +27,19 @@
 
     <div class="container">
 
+    {{-- Back Link --}}
+<div class="mb-4">
+
+    <a href="{{ route('services.show', $categorySlug) }}"
+       class="back-link">
+
+        <i class="bi bi-arrow-left"></i>
+        Back to {{ $category['name'] }}
+
+    </a>
+
+</div>
+
         <div class="row g-4">
 
             {{-- =========================================================
@@ -371,48 +384,86 @@
                 {{-- =================================================
                      FORMS & DOWNLOADS
                 ================================================== --}}
-                <div class="service-information-card">
+         <div class="service-information-card">
+    <h3>
+        <i class="bi bi-file-earmark-arrow-down"></i>
+        Forms & Downloads
+    </h3>
 
-                    <h3>
-                        <i class="bi bi-file-earmark-arrow-down"></i>
-                        Forms & Downloads
-                    </h3>
+    @if($serviceDownloads->count())
+        <div class="service-download-list">
 
-                    @if(isset($service['forms']))
+            @foreach($serviceDownloads as $download)
 
-                        <p>
-                            {{ $service['forms'] }}
-                        </p>
+                <div class="service-download-item">
 
-                    @else
+                    <div class="service-download-icon">
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </div>
 
-                        <p>
-                            No forms available yet.
-                        </p>
+                    <div class="service-download-content">
 
-                    @endif
+                        <h4>
+                            {{ $download->title }}
+                        </h4>
+
+                        @if($download->description)
+                            <p>
+                                {{ $download->description }}
+                            </p>
+                        @endif
+
+                        <div class="service-download-meta">
+                            <span>
+                                <i class="bi bi-filetype-pdf"></i>
+                                PDF Document
+                            </span>
+
+                            @if($download->file_size)
+                                <span>
+                                    <i class="bi bi-hdd"></i>
+                                    {{ number_format($download->file_size / 1024 / 1024, 2) }} MB
+                                </span>
+                            @endif
+                        </div>
+
+                    </div>
+
+                    <div class="service-download-action">
+
+                        <a
+                            href="{{ asset('storage/' . $download->file_path) }}"
+                            target="_blank"
+                            class="service-download-button"
+                        >
+                            <i class="bi bi-download"></i>
+                            Download
+                        </a>
+
+                    </div>
 
                 </div>
+
+            @endforeach
+
+        </div>
+    @else
+        <div class="service-download-empty">
+            <i class="bi bi-file-earmark-x"></i>
+
+            <p>
+                No forms are available for this service yet.
+            </p>
+        </div>
+    @endif
+</div>
 
             </div>
 
         </div>
 
 
-        {{-- =============================================================
-             BACK LINK
-        ============================================================== --}}
-        <div class="mt-4">
-
-            <a
-                href="{{ route('services.show', $categorySlug) }}"
-                class="back-link"
-            >
-                <i class="bi bi-arrow-left"></i>
-                Back to {{ $category['name'] }}
-            </a>
-
-        </div>
+       
 
     </div>
 

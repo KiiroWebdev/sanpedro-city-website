@@ -94,6 +94,34 @@
                     </div>
 
                     <div class="mb-4">
+    <label for="service_slug" class="form-label">
+        Government Service
+    </label>
+
+    <select
+        name="service_slug"
+        id="service_slug"
+        class="form-select"
+    >
+        <option value="">Not linked to a specific service</option>
+
+        @foreach($services as $slug => $name)
+
+            <option
+                value="{{ $slug }}"
+                {{ old('service_slug', $download->service_slug) === $slug ? 'selected' : '' }}
+            >
+                {{ $name }}
+            </option>
+
+        @endforeach
+    </select>
+
+    <div class="form-text">
+        Select a government service if this document is specifically used for that service.
+    </div>
+</div>
+                    <div class="mb-4">
                         <label for="description" class="form-label">
                             Description
                         </label>

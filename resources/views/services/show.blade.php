@@ -21,6 +21,16 @@
 
     </div>
 </section>
+</div>
+{{-- Back to Government Services --}}
+<div class="service-detail-back">
+    <div class="container">
+        <a href="{{ route('services.index') }}">
+            <i class="bi bi-arrow-left"></i>
+            Back to Government Services
+        </a>
+    </div>
+</div>
 
 
 <section class="service-detail-page py-5">
@@ -170,18 +180,7 @@
                
 
 
-        {{-- Back Link --}}
-        <div class="mt-4">
-
-            <a href="{{ route('services.index') }}"
-               class="back-link">
-
-                <i class="bi bi-arrow-left"></i>
-                Back to Government Services
-
-            </a>
-
-        </div>
+       
 
     </div>
 

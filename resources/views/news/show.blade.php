@@ -21,31 +21,46 @@
             {{-- Article Header --}}
             <header class="news-article-header">
 
-                <div class="news-article-meta">
+    <div class="news-article-meta">
 
-                    <span class="news-category">
-                        {{ $post->category }}
-                    </span>
+        @if($post->category)
+            <span class="news-category">
+                {{ $post->category }}
+            </span>
+        @endif
 
-                    @if($post->published_at)
-                        <span class="news-date">
-                            <i class="bi bi-calendar3"></i>
-                            {{ $post->published_at->format('F d, Y') }}
-                        </span>
-                    @endif
+        @if($post->published_at)
+            <span class="news-date">
+                <i class="bi bi-calendar3"></i>
+                {{ $post->published_at->format('F d, Y') }}
+            </span>
+        @endif
 
-                </div>
+    </div>
 
-                <h1>{{ $post->title }}</h1>
+    <h1>
+        {{ $post->title }}
+    </h1>
 
-                @if($post->author)
-                    <div class="news-article-author">
-                        <i class="bi bi-person"></i>
-                        Published by {{ $post->author }}
-                    </div>
-                @endif
+    <div class="news-article-details">
 
-            </header>
+        @if($post->author)
+            <span class="news-article-author">
+                <i class="bi bi-person"></i>
+                Published by {{ $post->author }}
+            </span>
+        @endif
+
+        @if($post->published_at)
+            <span class="news-article-time">
+                <i class="bi bi-clock"></i>
+                {{ $post->published_at->format('h:i A') }}
+            </span>
+        @endif
+
+    </div>
+
+</header>
 
             {{-- Featured Image / Facebook Post --}}
 @if($post->facebook_url)
@@ -84,34 +99,89 @@
 @endif
 
             {{-- Article Content --}}
-            <div class="news-article-content">
+<div class="news-article-content">
 
-                @if($post->excerpt)
-                    <p class="news-article-excerpt">
-                        {{ $post->excerpt }}
-                    </p>
-                @endif
+    @if($post->excerpt)
+        <div class="news-article-excerpt">
+            <i class="bi bi-quote"></i>
 
-                <div class="news-article-text">
-                    {!! nl2br(e($post->content)) !!}
-                </div>
+            <p>
+                {{ $post->excerpt }}
+            </p>
+        </div>
+    @endif
 
-            </div>
+    <div class="news-article-text">
+        {!! nl2br(e($post->content)) !!}
+    </div>
+
+</div>
 
         </article>
 
         {{-- Bottom Navigation --}}
-        <div class="news-article-footer">
+<div class="news-article-footer">
+
+    {{-- Previous Article --}}
+    <div class="news-article-nav news-article-nav-prev">
+
+        @if($previousPost)
 
             <a
-                href="{{ route('news.index') }}"
-                class="btn btn-primary"
+                href="{{ route('news.show', $previousPost->slug) }}"
+                class="news-nav-link"
             >
-                <i class="bi bi-arrow-left"></i>
-                Back to News
+                <span class="news-nav-label">
+                    <i class="bi bi-arrow-left"></i>
+                    Previous Article
+                </span>
+
+                <span class="news-nav-title">
+                    {{ $previousPost->title }}
+                </span>
             </a>
 
-        </div>
+        @endif
+
+    </div>
+
+    {{-- Back to News --}}
+    <div class="news-article-nav-center">
+
+        <a
+            href="{{ route('news.index') }}"
+            class="news-nav-home"
+        >
+            <i class="bi bi-grid"></i>
+            Back to News
+        </a>
+
+    </div>
+
+    {{-- Next Article --}}
+    <div class="news-article-nav news-article-nav-next">
+
+        @if($nextPost)
+
+            <a
+                href="{{ route('news.show', $nextPost->slug) }}"
+                class="news-nav-link"
+            >
+                <span class="news-nav-label">
+                    Next Article
+                    <i class="bi bi-arrow-right"></i>
+                </span>
+
+                <span class="news-nav-title">
+                    {{ $nextPost->title }}
+                </span>
+            </a>
+
+        @endif
+
+    </div>
+
+</div>
 
     </div>
 

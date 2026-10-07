@@ -6,6 +6,7 @@ use App\Models\DownloadDocument;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Http\Controllers\GovernmentServiceController;
 
 class AdminDownloadController extends Controller
 {
@@ -29,6 +30,11 @@ class AdminDownloadController extends Controller
         ];
     }
 
+   private function services(): array
+{
+    return (new GovernmentServiceController)->serviceOptions();
+}
+
     public function index()
     {
         if ($redirect = $this->checkAdmin()) {
@@ -43,16 +49,17 @@ class AdminDownloadController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        if ($redirect = $this->checkAdmin()) {
-            return $redirect;
-        }
-
-        return view('admin.downloads.create', [
-            'categories' => $this->categories(),
-        ]);
+   public function create()
+{
+    if ($redirect = $this->checkAdmin()) {
+        return $redirect;
     }
+
+    return view('admin.downloads.create', [
+        'categories' => $this->categories(),
+        'services' => $this->services(),
+    ]);
+}
 
     public function store(Request $request)
     {
@@ -63,7 +70,8 @@ class AdminDownloadController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'category' => 'required|string|in:' . implode(',', array_keys($this->categories())),
-            'description' => 'nullable|string',
+'service_slug' => 'nullable|string|in:' . implode(',', array_keys($this->services())),
+'description' => 'nullable|string',
             'file' => 'required|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip|max:20480',
             'status' => 'required|in:draft,published',
             'published_at' => 'nullable|date',
@@ -106,9 +114,10 @@ class AdminDownloadController extends Controller
     }
 
     return view('admin.downloads.edit', [
-        'download' => $download,
-        'categories' => $this->categories(),
-    ]);
+    'download' => $download,
+    'categories' => $this->categories(),
+    'services' => $this->services(),
+]);
 }
 public function update(Request $request, DownloadDocument $download)
 {
@@ -119,7 +128,8 @@ public function update(Request $request, DownloadDocument $download)
     $validated = $request->validate([
         'title' => 'required|string|max:255',
         'category' => 'required|string|in:' . implode(',', array_keys($this->categories())),
-        'description' => 'nullable|string',
+'service_slug' => 'nullable|string|in:' . implode(',', array_keys($this->services())),
+'description' => 'nullable|string',
         'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip|max:20480',
         'status' => 'required|in:draft,published',
         'published_at' => 'nullable|date',
@@ -128,7 +138,8 @@ public function update(Request $request, DownloadDocument $download)
     $data = [
         'title' => $validated['title'],
         'category' => $validated['category'],
-        'description' => $validated['description'] ?? null,
+'service_slug' => $validated['service_slug'] ?? null,
+'description' => $validated['description'] ?? null,
         'status' => $validated['status'],
         'published_at' => $validated['status'] === 'published'
             ? ($validated['published_at'] ?? $download->published_at ?? now())

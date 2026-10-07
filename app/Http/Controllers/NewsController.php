@@ -17,14 +17,32 @@ class NewsController extends Controller
         return view('news.index', compact('posts'));
     }
 
-    public function show(string $slug)
-    {
-        $post = Post::where('slug', $slug)
-            ->where('status', 'published')
-            ->whereNotNull('published_at')
-            ->where('published_at', '<=', now())
-            ->firstOrFail();
+    public function show($slug)
+{
+    $post = Post::where('slug', $slug)
+        ->where('status', 'published')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->firstOrFail();
 
-        return view('news.show', compact('post'));
-    }
+    $previousPost = Post::where('status', 'published')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->where('published_at', '<', $post->published_at)
+        ->orderByDesc('published_at')
+        ->first();
+
+    $nextPost = Post::where('status', 'published')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->where('published_at', '>', $post->published_at)
+        ->orderBy('published_at')
+        ->first();
+
+    return view('news.show', compact(
+        'post',
+        'previousPost',
+        'nextPost'
+    ));
+}
 }

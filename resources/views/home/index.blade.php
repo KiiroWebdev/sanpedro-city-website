@@ -282,6 +282,203 @@
 
 </section>
 
+{{-- Latest Biddings --}}
+<section class="home-biddings-section">
+
+    <div class="container">
+
+        <div class="home-section-heading">
+
+            <div>
+
+                <span class="home-section-label">
+                    <i class="bi bi-file-earmark-text"></i>
+                    PROCUREMENT
+                </span>
+
+                <h2>
+                    Latest Biddings
+                </h2>
+
+                <p>
+                    View the latest procurement opportunities and
+                    bidding notices from the City Government of San Pedro.
+                </p>
+
+            </div>
+
+
+            <a
+                href="{{ route('biddings.index') }}"
+                class="home-news-view-all"
+            >
+                View All Biddings
+                <i class="bi bi-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        @if($latestBiddings->count())
+
+            <div class="row g-4">
+
+                @foreach($latestBiddings as $bidding)
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <article class="home-bidding-card h-100">
+
+                            {{-- Notice Type --}}
+                            <div class="home-bidding-top">
+
+                                <span class="home-bidding-type">
+                                    {{ $bidding->type }}
+                                </span>
+
+                                @if($bidding->posting_date)
+
+                                    <small>
+                                        {{ $bidding->posting_date->format('M d, Y') }}
+                                    </small>
+
+                                @endif
+
+                            </div>
+
+
+                            {{-- Title --}}
+                            <h3>
+
+                                <a
+                                    href="{{ route('biddings.show', $bidding->slug) }}"
+                                >
+                                    {{ $bidding->title }}
+                                </a>
+
+                            </h3>
+
+
+                            {{-- Reference --}}
+                            @if($bidding->reference_no)
+
+                                <div class="home-bidding-reference">
+
+                                    <i class="bi bi-hash"></i>
+
+                                    Reference No.:
+                                    <strong>
+                                        {{ $bidding->reference_no }}
+                                    </strong>
+
+                                </div>
+
+                            @endif
+
+
+                            {{-- ABC --}}
+                            @if($bidding->abc)
+
+                                <div class="home-bidding-detail">
+
+                                    <span>
+                                        Approved Budget for the Contract
+                                    </span>
+
+                                    <strong>
+                                        ₱{{ number_format($bidding->abc, 2) }}
+                                    </strong>
+
+                                </div>
+
+                            @endif
+
+
+                            {{-- Deadline --}}
+                            @if($bidding->submission_deadline)
+
+                                <div class="home-bidding-detail">
+
+                                    <span>
+                                        Submission Deadline
+                                    </span>
+
+                                    <strong>
+                                        {{ $bidding->submission_deadline->format('M d, Y h:i A') }}
+                                    </strong>
+
+                                </div>
+
+
+                                {{-- Deadline Status --}}
+                                <div class="mt-3">
+
+                                    @if($bidding->submission_deadline->isPast())
+
+                                        <span class="bidding-status-badge bidding-status-closed">
+                                            Deadline Passed
+                                        </span>
+
+                                    @elseif($bidding->submission_deadline->lte(now()->addDays(3)))
+
+                                        <span class="bidding-status-badge bidding-status-soon">
+                                            Closing Soon
+                                        </span>
+
+                                    @else
+
+                                        <span class="bidding-status-badge bidding-status-open">
+                                            Open
+                                        </span>
+
+                                    @endif
+
+                                </div>
+
+                            @endif
+
+
+                            {{-- View --}}
+                            <div class="home-bidding-footer">
+
+                                <a
+                                    href="{{ route('biddings.show', $bidding->slug) }}"
+                                >
+                                    View Bidding
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                @endforeach
+
+            </div>
+
+        @else
+
+            <div class="home-news-empty">
+
+                <i class="bi bi-file-earmark-text"></i>
+
+                <h3>
+                    No Biddings Available
+                </h3>
+
+                <p>
+                    There are currently no published bidding notices.
+                </p>
+
+            </div>
+
+        @endif
+
+    </div>
+
+</section>
 
    <!-- GOVERNMENT SERVICES -->
 

@@ -9,19 +9,22 @@
     <div class="container">
 
         {{-- Page Header --}}
-        <div class="news-page-header">
-            <span class="news-page-label">
-                <i class="bi bi-newspaper"></i>
-                News & Updates
-            </span>
+       <div class="news-page-header">
 
-            <h1>Latest News & Updates</h1>
+    <span class="news-page-label">
+        <i class="bi bi-newspaper"></i>
+        News & Updates
+    </span>
 
-            <p>
-                Stay informed about the latest activities, announcements,
-                programs, and updates from the City Government of San Pedro.
-            </p>
-        </div>
+    <h1>Latest News & Updates</h1>
+
+    <p>
+        Stay informed about the latest activities, programs,
+        projects, events, and official updates from the
+        City Government of San Pedro, Laguna.
+    </p>
+
+</div>
 
         {{-- News Grid --}}
         @if($posts->count())

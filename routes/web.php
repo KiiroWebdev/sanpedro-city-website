@@ -14,6 +14,9 @@ use App\Http\Controllers\GovernmentServiceController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\AdminDownloadController;
+use App\Http\Controllers\BiddingController;
+use App\Http\Controllers\AdminBiddingController;
+use App\Http\Controllers\AdminBiddingDocumentController;
 use App\Models\Announcement;
 
 Route::get('/', function () {
@@ -23,6 +26,13 @@ Route::get('/', function () {
         ->latest('published_at')
         ->take(3)
         ->get();
+        
+        $latestBiddings = \App\Models\Bidding::where('status', 'published')
+    ->whereNotNull('posting_date')
+    ->where('posting_date', '<=', now())
+    ->orderByDesc('posting_date')
+    ->take(3)
+    ->get();
 
     $latestAnnouncements = Announcement::where('status', 'published')
         ->whereNotNull('published_at')
@@ -33,7 +43,7 @@ Route::get('/', function () {
 
     return view(
         'home.index',
-        compact('latestPosts', 'latestAnnouncements')
+        compact('latestPosts', 'latestAnnouncements','latestBiddings')
     );
 });
 
@@ -155,4 +165,31 @@ Route::put('/admin/downloads/{download}', [AdminDownloadController::class, 'upda
 Route::delete('/admin/downloads/{download}', [AdminDownloadController::class, 'destroy'])
     ->name('admin.downloads.destroy');
 
+Route::get('/biddings', [BiddingController::class, 'index'])
+    ->name('biddings.index');
 
+Route::get('/biddings/{slug}', [BiddingController::class, 'show'])
+    ->name('biddings.show');
+Route::get('/admin/biddings', [AdminBiddingController::class, 'index'])
+    ->name('admin.biddings.index');
+
+Route::get('/admin/biddings/create', [AdminBiddingController::class, 'create'])
+    ->name('admin.biddings.create');
+
+Route::post('/admin/biddings', [AdminBiddingController::class, 'store'])
+    ->name('admin.biddings.store');
+
+Route::get('/admin/biddings/{bidding}/edit', [AdminBiddingController::class, 'edit'])
+    ->name('admin.biddings.edit');
+
+Route::put('/admin/biddings/{bidding}', [AdminBiddingController::class, 'update'])
+    ->name('admin.biddings.update');
+
+Route::delete('/admin/biddings/{bidding}', [AdminBiddingController::class, 'destroy'])
+    ->name('admin.biddings.destroy');
+    
+Route::post('/admin/biddings/{bidding}/documents', [AdminBiddingDocumentController::class, 'store'])
+    ->name('admin.biddings.documents.store');
+
+Route::delete('/admin/biddings/{bidding}/documents/{document}', [AdminBiddingDocumentController::class, 'destroy'])
+    ->name('admin.biddings.documents.destroy');

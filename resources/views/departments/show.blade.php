@@ -23,6 +23,16 @@
     </div>
 </section>
 
+{{-- Back to Departments --}}
+<div class="department-detail-back">
+    <div class="container">
+        <a href="{{ route('departments') }}">
+            <i class="bi bi-arrow-left"></i>
+            Back to Departments
+        </a>
+    </div>
+</div>
+
 
 {{-- Department Overview --}}
 <section class="department-detail-section py-5">
@@ -220,15 +230,7 @@
 @endif
  </div>
 
-                <a href="{{ route('departments') }}"
-                   class="department-back-link">
-
-                    <i class="bi bi-arrow-left"></i>
-
-                    Back to Departments
-
-                </a>
-
+             
             </div>
 
         </div>

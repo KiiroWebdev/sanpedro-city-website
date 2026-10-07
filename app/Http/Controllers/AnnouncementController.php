@@ -8,29 +8,52 @@ class AnnouncementController extends Controller
 {
     public function index()
     {
-        $announcements = Announcement::where('status', 'published')
-            ->whereNotNull('published_at')
-            ->where('published_at', '<=', now())
-            ->latest('published_at')
-            ->paginate(10);
+         $previousAnnouncement = Announcement::where('status', 'published')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->where('published_at', '<', $announcement->published_at)
+        ->orderByDesc('published_at')
+        ->first();
 
-        return view(
-            'announcements.index',
-            compact('announcements')
-        );
-    }
+    $nextAnnouncement = Announcement::where('status', 'published')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->where('published_at', '>', $announcement->published_at)
+        ->orderBy('published_at')
+        ->first();
 
-    public function show(string $slug)
-    {
-        $announcement = Announcement::where('slug', $slug)
-            ->where('status', 'published')
-            ->whereNotNull('published_at')
-            ->where('published_at', '<=', now())
-            ->firstOrFail();
+    return view('announcements.show', compact(
+        'announcement',
+        'previousAnnouncement',
+        'nextAnnouncement'
+    ));
+}
+public function show($slug)
+{
+    $announcement = Announcement::where('slug', $slug)
+        ->where('status', 'published')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->firstOrFail();
 
-        return view(
-            'announcements.show',
-            compact('announcement')
-        );
-    }
+    $previousAnnouncement = Announcement::where('status', 'published')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->where('published_at', '<', $announcement->published_at)
+        ->orderByDesc('published_at')
+        ->first();
+
+    $nextAnnouncement = Announcement::where('status', 'published')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->where('published_at', '>', $announcement->published_at)
+        ->orderBy('published_at')
+        ->first();
+
+    return view('announcements.show', compact(
+        'announcement',
+        'previousAnnouncement',
+        'nextAnnouncement'
+    ));
+}
 }

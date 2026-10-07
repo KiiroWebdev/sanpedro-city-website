@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\DownloadDocument;
 
 class GovernmentServiceController extends Controller
 {
@@ -154,7 +155,7 @@ class GovernmentServiceController extends Controller
     'fees' => 'Applicable business taxes, Mayor’s Permit, other fees, Fire Safety Inspection Fee, and CTC Fee, as applicable.',
 
     'source' => 'City Government of San Pedro, Laguna Citizens’ Charter',
-    'last_updated' => 'Reference: Citizens’ Charter',
+    'last_updated' => 'Citizens’ Charter',
 ],
 
                 ],
@@ -637,6 +638,19 @@ class GovernmentServiceController extends Controller
         ];
     }
 
+    public function serviceOptions(): array
+{
+    $options = [];
+
+    foreach ($this->categories() as $category) {
+        foreach ($category['services'] as $service) {
+            $options[$service['slug']] = $service['name'];
+        }
+    }
+
+    return $options;
+}
+
 
     public function index()
 {
@@ -660,24 +674,35 @@ class GovernmentServiceController extends Controller
             compact('category', 'categorySlug')
         );
     }
+public function service(string $categorySlug, string $serviceSlug)
+{
+    $categories = $this->categories();
 
+    abort_unless(isset($categories[$categorySlug]), 404);
 
-    public function service(string $categorySlug, string $serviceSlug)
-    {
-        $categories = $this->categories();
+    $category = $categories[$categorySlug];
 
-        abort_unless(isset($categories[$categorySlug]), 404);
+    $service = collect($category['services'])
+        ->firstWhere('slug', $serviceSlug);
 
-        $category = $categories[$categorySlug];
+    abort_unless($service, 404);
 
-        $service = collect($category['services'])
-            ->firstWhere('slug', $serviceSlug);
+    $serviceDownloads = DownloadDocument::where('service_slug', $serviceSlug)
+        ->where('category', 'application-forms')
+        ->where('status', 'published')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->latest('published_at')
+        ->get();
 
-        abort_unless($service, 404);
-
-        return view(
-            'services.service',
-            compact('category', 'service', 'categorySlug')
-        );
-    }
+    return view(
+        'services.service',
+        compact(
+            'category',
+            'service',
+            'categorySlug',
+            'serviceDownloads'
+        )
+    );
+}
 }

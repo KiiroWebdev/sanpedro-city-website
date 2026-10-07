@@ -124,6 +124,54 @@
 
     </div>
 
+    {{-- Biddings --}}
+<div class="col-lg-3 col-md-6">
+
+    <a
+        href="{{ route('admin.biddings.index') }}"
+        class="admin-card"
+    >
+
+        <div class="admin-card-icon">
+            <i class="bi bi-file-earmark-text"></i>
+        </div>
+
+        <div>
+            <h3>Biddings</h3>
+
+            <p>
+                Manage bidding notices
+            </p>
+        </div>
+
+    </a>
+
+</div>
+
+{{-- Downloads --}}
+<div class="col-lg-3 col-md-6">
+
+    <a
+        href="{{ route('admin.downloads.index') }}"
+        class="admin-card"
+    >
+
+        <div class="admin-card-icon">
+            <i class="bi bi-download"></i>
+        </div>
+
+        <div>
+            <h3>Downloads</h3>
+
+            <p>
+                Manage downloadable documents
+            </p>
+        </div>
+
+    </a>
+
+</div>
+
 
     {{-- Media --}}
     <div class="col-lg-3 col-md-6">
