@@ -124,6 +124,30 @@
 
     </div>
 
+    {{-- Job Opportunities --}}
+<div class="col-lg-3 col-md-6">
+
+    <a
+        href="{{ route('admin.job-opportunities.index') }}"
+        class="admin-card"
+    >
+
+        <div class="admin-card-icon">
+            <i class="bi bi-briefcase"></i>
+        </div>
+
+        <div>
+            <h3>Job Opportunities</h3>
+
+            <p>
+                Manage employment opportunities
+            </p>
+        </div>
+
+    </a>
+
+</div>
+
     {{-- Biddings --}}
 <div class="col-lg-3 col-md-6">
 

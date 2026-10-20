@@ -314,6 +314,7 @@ header {
 }
 
 
+
 /* =========================================================
    ANNOUNCEMENTS
    ========================================================= */
@@ -1382,6 +1383,52 @@ header {
     line-height: 1.7;
 }
 
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header span {
+    display: block;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+.page-header {
+    padding: 70px 0;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+}
+
+.page-header span {
+    display: block;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.page-header h1 {
+    color: var(--dark);
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.page-header p {
+    max-width: 700px;
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
 /* News Card */
 
 .news-card {
@@ -2132,7 +2179,7 @@ font-weight: 700;
 
 .announcement-intro p {
 margin: 0 0 22px;
-color: var(--muted);
+color: var(--dark);
 line-height: 1.75;
 }
 
@@ -6105,4 +6152,383 @@ transform: translateX(4px);
         justify-content: center;
     }
 
+}
+
+/* =========================================================
+   JOB OPPORTUNITIES PAGE HEADER
+   ========================================================= */
+
+.job-opportunities-page-header {
+    background:
+        linear-gradient(
+            rgba(5, 91, 37, 0.92),
+            rgba(52, 120, 78, 0.92)
+        ),
+        url("../images/city-hall.jpg") center center / cover no-repeat;
+
+    padding: 65px 0;
+    color: var(--white);
+}
+
+.job-opportunities-page-header .page-header-label {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 7px 14px;
+
+    background: var(--secondary);
+    color: var(--dark) !important;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    border-radius: 5px;
+}
+
+.job-opportunities-page-header h1 {
+    color: var(--white);
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.job-opportunities-page-header p {
+    max-width: 700px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+/* =========================================================
+   JOB OPPORTUNITIES
+   ========================================================= */
+
+.job-opportunities-section {
+    padding: 55px 0 70px;
+}
+
+.job-opportunities-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.job-opportunities-heading .section-label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.job-opportunities-heading h2 {
+    margin-bottom: 12px;
+}
+
+.job-opportunities-heading p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.job-opportunities-section .empty-news {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 35px 20px;
+}
+/* =========================================================
+   JOB OPPORTUNITY DETAIL
+   ========================================================= */
+
+.job-detail-section {
+    padding: 55px 0 75px;
+    background: var(--white);
+}
+
+.job-detail-back {
+    margin-bottom: 25px;
+}
+
+.job-detail-back a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.job-detail-back a:hover {
+    color: var(--primary-dark);
+}
+
+
+/* Main Job Card */
+
+.job-detail-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 35px;
+    box-shadow: 0 8px 25px rgba(25, 51, 34, 0.06);
+}
+
+.job-detail-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.job-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 8px 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    background: var(--light);
+    color: var(--dark);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.job-badge-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+}
+
+
+/* Detail Sections */
+
+.job-detail-block {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+}
+
+.job-detail-block-last {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+.job-detail-block h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--dark);
+    font-size: 22px;
+    font-weight: 700;
+
+    margin-bottom: 18px;
+}
+
+.job-detail-block h2 i {
+    color: var(--primary);
+}
+
+.job-detail-content {
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+    white-space: normal;
+}
+
+
+/* Information Sidebar */
+
+.job-info-card {
+    position: sticky;
+    top: 30px;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    padding: 30px;
+
+    box-shadow: 0 8px 25px rgba(25, 51, 34, 0.06);
+}
+
+.job-info-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding-bottom: 20px;
+    margin-bottom: 5px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.job-info-header i {
+    color: var(--primary);
+    font-size: 22px;
+}
+
+.job-info-header h2 {
+    color: var(--dark);
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.job-info-item {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.job-info-item:last-of-type {
+    border-bottom: 0;
+}
+
+.job-info-item span {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.job-info-item strong {
+    display: block;
+    color: var(--dark);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* Deadline Notice */
+
+.job-deadline-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    margin-top: 20px;
+    padding: 15px;
+
+    background: var(--light);
+    border-left: 4px solid var(--secondary);
+    border-radius: 8px;
+}
+
+.job-deadline-note > i {
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.job-deadline-note strong {
+    display: block;
+    color: var(--dark);
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+
+.job-deadline-note span {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* Bottom Navigation */
+
+.job-detail-footer {
+    margin-top: 35px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 991.98px) {
+
+    .job-info-card {
+        position: static;
+    }
+
+}
+
+@media (max-width: 767.98px) {
+
+    .job-detail-section {
+        padding: 40px 0 55px;
+    }
+
+    .job-detail-card {
+        padding: 25px 20px;
+        border-radius: 10px;
+    }
+
+    .job-info-card {
+        padding: 25px 20px;
+        border-radius: 10px;
+    }
+
+    .job-detail-block h2 {
+        font-size: 19px;
+    }
+
+    .job-detail-content {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+}
+
+/* Job Opportunity Listing Card */
+
+.job-opportunity-card {
+    height: 100%;
+    padding: 28px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(25, 51, 34, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.job-opportunity-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(25, 51, 34, 0.10);
+}
+
+.job-opportunity-card h2 {
+    color: var(--dark);
+    font-size: 23px;
+    font-weight: 700;
+    margin: 18px 0 12px;
+}
+
+.job-opportunity-card p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.job-opportunity-card .job-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.job-opportunity-card .job-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 10px 15px;
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.job-opportunity-card .job-card-link:hover {
+    background: var(--primary);
+    color: var(--white);
 }

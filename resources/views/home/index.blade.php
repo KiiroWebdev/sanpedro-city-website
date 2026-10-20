@@ -321,7 +321,7 @@
 
         @if($latestBiddings->count())
 
-            <div class="row g-4">
+            <div class="row g-4 justify-content-center">
 
                 @foreach($latestBiddings as $bidding)
 
@@ -603,35 +603,35 @@
         </div>
 
 
-        {{-- Contact --}}
-        <div class="col-lg-3 col-md-6">
+       {{-- Contact --}}
+<div class="col-lg-3 col-md-6">
 
-            <a href="{{ route('contact') }}">
+    <a href="{{ route('contact') }}" class="quick-link-card">
 
-                <div class="quick-link-icon">
-                    <i class="bi bi-telephone"></i>
-                </div>
+        <div class="quick-link-icon">
+            <i class="bi bi-telephone"></i>
+        </div>
 
-                <div class="quick-link-content">
+        <div class="quick-link-content">
 
-                    <h3>
-                        Contact Us
-                    </h3>
+            <h3>
+                Contact Us
+            </h3>
 
-                    <p>
-                        Find contact information
-                        for the City Government.
-                    </p>
-
-                </div>
-
-                <span class="quick-link-arrow">
-                    <i class="bi bi-arrow-right"></i>
-                </span>
-
-            </a>
+            <p>
+                Find contact information
+                for the City Government.
+            </p>
 
         </div>
+
+        <span class="quick-link-arrow">
+            <i class="bi bi-arrow-right"></i>
+        </span>
+
+    </a>
+
+</div>
 
     </div>
 

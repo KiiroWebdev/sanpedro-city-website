@@ -651,6 +651,22 @@ class GovernmentServiceController extends Controller
     return $options;
 }
 
+public function serviceGroups(): array
+{
+    $groups = [];
+
+    foreach ($this->categories() as $category) {
+        $services = [];
+
+        foreach ($category['services'] as $service) {
+            $services[$service['slug']] = $service['name'];
+        }
+
+        $groups[$category['name']] = $services;
+    }
+
+    return $groups;
+}
 
     public function index()
 {

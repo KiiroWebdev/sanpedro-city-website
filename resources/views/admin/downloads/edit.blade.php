@@ -99,23 +99,31 @@
     </label>
 
     <select
-        name="service_slug"
-        id="service_slug"
-        class="form-select"
-    >
-        <option value="">Not linked to a specific service</option>
+    name="service_slug"
+    id="service_slug"
+    class="form-select"
+>
+    <option value="">Not linked to a specific service</option>
 
-        @foreach($services as $slug => $name)
+    @foreach($serviceGroups as $categoryName => $services)
 
-            <option
-                value="{{ $slug }}"
-                {{ old('service_slug', $download->service_slug) === $slug ? 'selected' : '' }}
-            >
-                {{ $name }}
-            </option>
+        <optgroup label="{{ $categoryName }}">
 
-        @endforeach
-    </select>
+            @foreach($services as $slug => $name)
+
+                <option
+                    value="{{ $slug }}"
+                    {{ old('service_slug', $download->service_slug) === $slug ? 'selected' : '' }}
+                >
+                    {{ $name }}
+                </option>
+
+            @endforeach
+
+        </optgroup>
+
+    @endforeach
+</select>
 
     <div class="form-text">
         Select a government service if this document is specifically used for that service.

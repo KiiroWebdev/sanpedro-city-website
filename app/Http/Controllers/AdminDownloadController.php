@@ -30,7 +30,11 @@ class AdminDownloadController extends Controller
         ];
     }
 
-   private function services(): array
+  private function serviceGroups(): array
+{
+    return (new GovernmentServiceController)->serviceGroups();
+}
+private function services(): array
 {
     return (new GovernmentServiceController)->serviceOptions();
 }
@@ -55,10 +59,10 @@ class AdminDownloadController extends Controller
         return $redirect;
     }
 
-    return view('admin.downloads.create', [
-        'categories' => $this->categories(),
-        'services' => $this->services(),
-    ]);
+   return view('admin.downloads.create', [
+    'categories' => $this->categories(),
+    'serviceGroups' => $this->serviceGroups(),
+]);
 }
 
     public function store(Request $request)
@@ -116,7 +120,7 @@ class AdminDownloadController extends Controller
     return view('admin.downloads.edit', [
     'download' => $download,
     'categories' => $this->categories(),
-    'services' => $this->services(),
+    'serviceGroups' => $this->serviceGroups(),
 ]);
 }
 public function update(Request $request, DownloadDocument $download)

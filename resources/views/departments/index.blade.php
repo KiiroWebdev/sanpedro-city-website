@@ -46,7 +46,7 @@
         </div>
 
 
-        <div class="row g-4">
+        <div class="row g-4 justify-content-center">
 
             @foreach($departments as $slug => $department)
 

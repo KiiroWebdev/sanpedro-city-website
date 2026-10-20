@@ -17,6 +17,8 @@ use App\Http\Controllers\AdminDownloadController;
 use App\Http\Controllers\BiddingController;
 use App\Http\Controllers\AdminBiddingController;
 use App\Http\Controllers\AdminBiddingDocumentController;
+use App\Http\Controllers\JobOpportunityController;
+use App\Http\Controllers\AdminJobOpportunityController;
 use App\Models\Announcement;
 
 Route::get('/', function () {
@@ -91,6 +93,24 @@ Route::post('/admin/media', [AdminMediaController::class, 'store'])
 
 Route::delete('/admin/media/{filename}', [AdminMediaController::class, 'destroy'])
     ->name('admin.media.destroy');
+
+Route::get('/admin/job-opportunities', [AdminJobOpportunityController::class, 'index'])
+    ->name('admin.job-opportunities.index');
+
+Route::get('/admin/job-opportunities/create', [AdminJobOpportunityController::class, 'create'])
+    ->name('admin.job-opportunities.create');
+
+Route::post('/admin/job-opportunities', [AdminJobOpportunityController::class, 'store'])
+    ->name('admin.job-opportunities.store');
+
+Route::get('/admin/job-opportunities/{jobOpportunity}/edit', [AdminJobOpportunityController::class, 'edit'])
+    ->name('admin.job-opportunities.edit');
+
+Route::put('/admin/job-opportunities/{jobOpportunity}', [AdminJobOpportunityController::class, 'update'])
+    ->name('admin.job-opportunities.update');
+
+Route::delete('/admin/job-opportunities/{jobOpportunity}', [AdminJobOpportunityController::class, 'destroy'])
+    ->name('admin.job-opportunities.destroy');
 
 Route::get('/admin/announcements', [AdminAnnouncementController::class, 'index'])
     ->name('admin.announcements.index');
@@ -193,3 +213,9 @@ Route::post('/admin/biddings/{bidding}/documents', [AdminBiddingDocumentControll
 
 Route::delete('/admin/biddings/{bidding}/documents/{document}', [AdminBiddingDocumentController::class, 'destroy'])
     ->name('admin.biddings.documents.destroy');
+
+Route::get('/job-opportunities', [JobOpportunityController::class, 'index'])
+->name('job-opportunities.index');
+
+Route::get('/job-opportunities/{slug}', [JobOpportunityController::class, 'show'])
+    ->name('job-opportunities.show');

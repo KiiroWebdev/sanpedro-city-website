@@ -24,14 +24,23 @@
                 </p>
             </div>
 
-            <a
-                href="{{ route('admin.announcements.create') }}"
-                class="btn btn-primary"
-            >
-                <i class="bi bi-plus-lg"></i>
-                New Announcement
-            </a>
+            <div class="d-flex gap-2 align-items-center">
+    <a
+        href="{{ route('admin.dashboard') }}"
+        class="btn btn-outline-secondary"
+    >
+        <i class="bi bi-arrow-left"></i>
+        Back to Dashboard
+    </a>
 
+    <a
+        href="{{ route('admin.announcements.create') }}"
+        class="btn btn-primary"
+    >
+        <i class="bi bi-plus-lg"></i>
+        New Announcement
+    </a>
+</div>
         </div>
 
 

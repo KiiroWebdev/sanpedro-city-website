@@ -84,6 +84,12 @@
     </a>
 </li>
 
+<li class="nav-item">
+<a class="nav-link"href="{{ route('job-opportunities.index') }}">
+        Job Opportunities
+</a>
+</li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('news.index') }}">
                             News & Updates
