@@ -6535,13 +6535,25 @@ transform: translateX(4px);
 
 /* Philippine Standard Time Clock */
 
+
+/* Header layout */
+.top-header {
+    position: relative;
+    z-index: 2;
+}
+
+.top-header > .container > .d-flex {
+    min-height: 100px;
+    gap: 20px;
+}
+
 /* Philippine Standard Time */
 .pst-clock {
     color: #fff;
     text-align: right;
     font-size: 11px;
-    line-height: 1.4;
-    margin-left: 20px;
+    line-height: 1.5;
+    margin-left: auto;
     flex-shrink: 0;
 }
 
@@ -6549,15 +6561,21 @@ transform: translateX(4px);
     font-weight: 600;
 }
 
-/* Mobile header */
-@media (max-width: 576px) {
-    .top-header .container > .d-flex {
+/* Navigation visibility */
+.main-navbar {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive header */
+@media (max-width: 768px) {
+    .top-header > .container > .d-flex {
         flex-wrap: wrap;
-        gap: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .pst-clock {
         margin-left: auto;
-        padding-bottom: 8px;
     }
 }
