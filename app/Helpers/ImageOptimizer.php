@@ -34,10 +34,10 @@ class ImageOptimizer
         $imageInfo = @getimagesize($sourcePath);
 
         if (!$imageInfo) {
-            $uploadedFile->move($destinationPath, $filename);
-
-            return $filename;
-        }
+    throw new \RuntimeException(
+        'The uploaded file is not a valid image.'
+    );
+}
 
         $width = $imageInfo[0];
         $height = $imageInfo[1];
@@ -56,10 +56,10 @@ class ImageOptimizer
         };
 
         if (!$source) {
-            $uploadedFile->move($destinationPath, $filename);
-
-            return $filename;
-        }
+    throw new \RuntimeException(
+        'The uploaded image could not be processed.'
+    );
+}
 
         /*
         |--------------------------------------------------------------------------
@@ -174,13 +174,10 @@ class ImageOptimizer
         |--------------------------------------------------------------------------
         */
         if (!$saved) {
-            $uploadedFile->move(
-                $destinationPath,
-                $filename
-            );
-
-            return $filename;
-        }
+    throw new \RuntimeException(
+        'The optimized image could not be saved.'
+    );
+}
 
         return $webpFilename;
     }

@@ -83,22 +83,32 @@ class AdminMediaController extends Controller
 
         $image = $request->file('image');
 
-        $filename = time() . '_' . Str::slug(
-            pathinfo(
-                $image->getClientOriginalName(),
-                PATHINFO_FILENAME
-            )
-        ) . '.' . $image->getClientOriginalExtension();
+        
+$filename = Str::uuid() . '_' . Str::slug(
+    pathinfo(
+        $image->getClientOriginalName(),
+        PATHINFO_FILENAME
+    )
+) . '.' . strtolower($image->getClientOriginalExtension());
 
-      ImageOptimizer::optimize(
-    $image,
-    public_path('images'),
-    $filename
-);
 
-        return redirect()
-            ->route('admin.media.index')
-            ->with('success', 'Image uploaded successfully.');
+   
+try {
+    ImageOptimizer::optimize(
+        $image,
+        public_path('images'),
+        $filename
+    );
+} catch (\RuntimeException $e) {
+    return redirect()
+        ->route('admin.media.index')
+        ->with('error', 'The image could not be processed. Please upload a valid JPG, PNG, or WebP image.');
+}
+
+return redirect()
+    ->route('admin.media.index')
+    ->with('success', 'Image uploaded successfully.');
+
     }
 
     public function destroy(string $filename)
@@ -107,7 +117,14 @@ class AdminMediaController extends Controller
             return redirect()->route('admin.login');
         }
 
-        $filename = basename($filename);
+        if (
+    basename($filename) !== $filename ||
+    !preg_match('/\A[a-zA-Z0-9._-]+\.(jpg|jpeg|png|webp|gif)\z/i', $filename)
+) {
+    return redirect()
+        ->route('admin.media.index')
+        ->with('error', 'Invalid image filename.');
+}
 
         $path = public_path('images/' . $filename);
 

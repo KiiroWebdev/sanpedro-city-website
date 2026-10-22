@@ -53,15 +53,14 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
-    public function logout(Request $request)
-    {
-        $request->session()->forget([
-            'admin_id',
-            'admin_name',
-        ]);
+    
+public function logout(Request $request)
+{
+    $request->session()->invalidate();
 
-        $request->session()->regenerateToken();
+    $request->session()->regenerateToken();
 
-        return redirect()->route('admin.login');
-    }
+    return redirect()->route('admin.login');
+}
+
 }

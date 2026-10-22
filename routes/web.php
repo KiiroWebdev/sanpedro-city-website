@@ -58,14 +58,24 @@ Route::get('/news/{slug}', [NewsController::class, 'show'])
 Route::get('/admin/login', [AdminController::class, 'showLogin'])
     ->name('admin.login');
 
+
 Route::post('/admin/login', [AdminController::class, 'login'])
+    ->middleware('throttle:5,1')
     ->name('admin.login.submit');
+
+
+// Protect all admin routes below this point.
+Route::middleware('admin.auth')->group(function () {
 
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
     ->name('admin.dashboard');
 
 Route::post('/admin/logout', [AdminController::class, 'logout'])
     ->name('admin.logout');
+
+ // Keep all your existing admin management routes here:
+    // posts, media, job opportunities, announcements,
+    // downloads, biddings, and bidding documents.
 
 Route::get('/admin/posts', [AdminPostController::class, 'index'])
     ->name('admin.posts.index');
@@ -219,3 +229,9 @@ Route::get('/job-opportunities', [JobOpportunityController::class, 'index'])
 
 Route::get('/job-opportunities/{slug}', [JobOpportunityController::class, 'show'])
     ->name('job-opportunities.show');
+
+});
+
+// Keep public website routes outside the protected group:
+// home, news, announcements, departments, services,
+// contact, downloads, biddings, and job opportunities.
